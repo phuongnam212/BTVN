@@ -11,27 +11,27 @@ string rtrim(const string &);
  * The function is expected to return an INTEGER.
  * The function accepts STRING s as parameter.
  */
+    bool ktrachuoi (string s){
+        int n=s.size();
+        for (int i=0;i<n/2;i++){
+            if (s[i]!=s[n-i-1]) return false;
+            
+        }
+        return true;
+        
+    }
 
 int palindromeIndex(string s) {
- int i=0,j=s.size()-1;
- int _i=i,_j=j;
- bool error=false;
- 
- if (s.size()>=3){
-     while (i>=j){
-         if (s[i]!=s[j]){
-             if (error) return _j;
-             
-             error =true ;
-             _i=i;
-             _j=j;
-             i++;
-      
-         }
-         else i++,j--;
-         
-     }
-     return error?_i:-1;
+    int n=s.size();
+    for (int i=0;i<n/2;i++){
+        if (s[i]!=s[n-i-1]){
+            string temp=s;
+            temp.erase(i,1);
+            if (ktrachuoi(temp)) return i;
+            else return n-1-i;
+        }
+    }
+     return -1;
      
  }
 
