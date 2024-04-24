@@ -15,11 +15,11 @@ int main() {
     }
     int a,b,c;
     cin >> a >> b >> c;
-    
-    //s.erase(s.begin()+(a-1));
-    s.erase(b-1,c-2);
-    cout << a+(c-b-1);
-    for (int i=0;i< n-2;i++){
+    s.erase(s.begin()+(a-1));
+    s.erase(s.begin()+(b-1),s.begin()+(c-1));
+
+    cout << s.size()<< endl;
+    for (int i=0;i< n-(c-b+1);i++){
         cout << s[i] << " ";
     }
     
